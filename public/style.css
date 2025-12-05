@@ -1,0 +1,251 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #0d0d0d;      /* Black background */
+  color: #fff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 15px 40px;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  color: #1e90ff;
+  font-weight: bold;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #1e90ff;
+}
+
+/* Card */
+.card {
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px 40px;
+  width: 600px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  margin: 60px 0; /* Space top & bottom */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+}
+
+/* Headings */
+.main-heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1e90ff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.sub-heading {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #dcdcdc;
+}
+
+/* Input group */
+.input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+input#prompt {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #1e90ff;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+input#prompt::placeholder {
+  color: #c0c0c0aa;
+}
+
+input#prompt:focus {
+  background: rgba(30,144,255,0.1);
+  box-shadow: 0 0 10px rgba(30,144,255,0.5);
+}
+
+/* Button style */
+button#generateBtn {
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  background: #1e90ff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button#generateBtn:hover {
+  background: #0f66c2;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(30,144,255,0.6);
+}
+
+/* Image container */
+.image-container {
+  position: relative;
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#resultImage {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+  display: none;
+  transition: all 0.3s ease;
+}
+
+/* Loader animation */
+.loader {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(255,255,255,0.2);
+  border-top: 6px solid #1e90ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: rgba(20,20,20,0.9);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 15px 0;
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+}
+
+
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;   /* Reduce width for tablet */
+    padding: 25px 20px;
+  }
+
+  .main-heading {
+    font-size: 1.6rem;
+  }
+
+  .sub-heading {
+    font-size: 0.95rem;
+  }
+
+  .input-group {
+    flex-direction: column; /* Stack input & button */
+  }
+
+  button#generateBtn {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .navbar .nav-links {
+    gap: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .card {
+    width: 95%;   /* Full width for mobile */
+    padding: 20px 15px;
+  }
+
+  .main-heading {
+    font-size: 1.4rem;
+  }
+
+  .sub-heading {
+    font-size: 0.85rem;
+  }
+
+  input#prompt {
+    font-size: 0.95rem;
+  }
+
+  button#generateBtn {
+    font-size: 0.95rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 5%;
+  }
+
+  .navbar .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+}
